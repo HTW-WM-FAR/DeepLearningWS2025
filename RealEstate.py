@@ -28,7 +28,7 @@ from keras.optimizers import AdamW
 RANDOM_STATE = 42
 N_SPLITS = 5
 
-DATA_PATH = r"PATH OF EXCEL FILE WITH PRPOPERTIES.xlsx"
+DATA_PATH = r"PATH OF EXCEL FILE WITH PROPERTIES.xlsx"
 PLOT_DIR = r"PATH TO SAVE PLOTS"
 os.makedirs(PLOT_DIR, exist_ok=True)
 
@@ -1007,3 +1007,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
