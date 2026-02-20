@@ -1,0 +1,63 @@
+{
+  "global": {
+    "freq": "1h",
+    "L_input_chunk_length": 48,
+    "H_forecast_horizon": 24,
+    "train_share": 0.7,
+    "val_share": 0.2,
+    "test_share": 0.1,
+    "target": "log_close",
+    "past_covariates": [
+      "Volume",
+      "volatility",
+      "rsi",
+      "funding_rate",
+      "fear_greed",
+      "funding_change",
+      "fear_change",
+      "funding_lag6",
+      "fear_lag24",
+      "log_return"
+    ],
+    "future_covariates": [
+      "hour_sin",
+      "hour_cos",
+      "dow_sin",
+      "dow_cos"
+    ],
+    "batch_size": 64,
+    "learning_rate": 0.001,
+    "earlystop_patience": 10,
+    "min_epochs": 12,
+    "max_epochs": 15,
+    "seed": 42,
+    "modeling_window": {
+      "start": "2020-01-01",
+      "end": "2025-11-22"
+    },
+    "metrics_reported": "MAE/RMSE on price scale via exp(log_close)"
+  },
+  "TFT": {
+    "hidden_size": 16,
+    "lstm_layers": 1,
+    "dropout": 0.1,
+    "add_relative_index": true,
+    "objective": "MSE (deterministic)"
+  },
+  "LSTM": {
+    "hidden_dim": 8,
+    "n_rnn_layers": 1,
+    "dropout": 0.1,
+    "objective": "MSE"
+  },
+  "GRU": {
+    "hidden_dim": 8,
+    "n_rnn_layers": 1,
+    "dropout": 0.1,
+    "objective": "MSE"
+  },
+  "Baselines": {
+    "NaiveMean": "predict mean of train series",
+    "NaiveDrift": "drift baseline"
+  }
+}
